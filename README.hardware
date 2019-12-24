@@ -42,7 +42,6 @@ the corresponding h/w features exist.
   o Bus
 	+ I2C: On-Chip I2C controller
 	+ QSPI: On-Chip Quad-SPI flash controller
-	+ SPI: On-Chip SPI controller
 
   o Multimedia (PL)
 	+ DRM Graphic: ADI AXI video controller
@@ -71,7 +70,6 @@ the corresponding h/w features exist.
 	+ GPIO: On-Chip general purpose I/O peripheral
 	+ RTC: RTC-8564JE, I2C RTC chip
 	+ SWDT: On-Chip System Watchdog Timer
-	+ XADC: On-Chip analog-to-digital converter
 	+ UART: On-Chip UART
 
 
@@ -109,7 +107,7 @@ For ZYNQ ZC706 board:
 For ZYNQ ZC702 board:
 
 	Processor:             ZYNQ XC7Z020
-	Board Revision:        HW-Z7-ZC702 REV 1.2
+	Board Revision:        HW-Z7-ZC702 REV 1.1
 	BootLoader:            U-Boot (ZC702 customized)
 	BootLoader Version:    U-Boot 2018.01
 

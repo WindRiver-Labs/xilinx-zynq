@@ -58,7 +58,7 @@ The following table summarizes the valid Wind River Linux distros for this BSP.
   +--------------+-------------+-------------+------------------+
   | valid/distro |   wrlinux   | wrlinux-cgl | wrlinux-std-sato |
   +--------------+-------------+-------------+------------------+
-  |    valid     |      Y      |      N      |         y        |
+  |    valid     |      Y      |      N      |         Y        |
   +--------------+-------------+-------------+------------------+
 
 For the supported kernel type for this BSP, please check the TARGET_SUPPORTED_KTYPES
@@ -75,7 +75,7 @@ along with patch descriptions, use git to see what changed on the default
 kernel (git whatchanged <kernel_type>..<bsp_name>). For example:
 
 	# cd path_to_project/tmp-glibc/work-shared/xilinx-zynq/kernel-source
-	# git whatchanged standard/base..HEAD
+	# git whatchanged origin/v4.18/standard/wr-base..HEAD
 
 
 4. Boot Instructions
@@ -135,7 +135,7 @@ Suppose the device node for the MMC/SD card on the host machine is
 	# mount /dev/mmcblk0p1 /mnt/sd
 	# cd <buildprj>/export/images/
 	# cp zImage-xilinx-zynq.bin  /mnt/sd/zImage
-	# cp zImage-zynq-<Board Name>.dtb /mnt/sd/devicetree.dtb
+	# cp zynq-<Board Name>.dtb /mnt/sd/devicetree.dtb
 	# umount /mnt/sd
 
 4.1.3 Decompress the MMC/SD root filesystem
@@ -256,7 +256,7 @@ To boot from an NFS image, execute use following u-boot commands:
 	# setenv rootpath /nfsexport
 	# setenv bootargs console=ttyPS0,115200 earlyprintk root=/dev/nfs rw nfsroot=$serverip:$rootpath ip=dhcp
 	# tftpboot 0x3000000 zImage-xilinx-zynq.bin
-	# tftpboot 0x2a00000 zImage-zynq-<Board Name>.dtb
+	# tftpboot 0x2a00000 zynq-<Board Name>.dtb
 	# bootz 0x3000000 - 0x2a00000
 
 
@@ -276,9 +276,9 @@ onboard HDMI interfaces.
 5.1.2 Usage and verification
 ----------------------------
 
-A glibc-std-sato filesystem is used to start matchbox on an HDMI monitor, so
-the "--distros glibc-std-sato" parameter should be passd to setup.sh:
-        ../setup.sh --distros glibc-std-sato ...
+A wrlinux-std-sato filesystem is used to start matchbox on an HDMI monitor, so
+the "--distros wrlinux-std-sato" parameter should be passd to setup.sh:
+        ../setup.sh --distros wrlinux-std-sato ...
 
 before rebuilding:
         bitbake wrlinux-image-glibc-std-sato
@@ -398,7 +398,7 @@ The board can boot automatically by setting the following uboot environment vari
 
 => setenv bootargs console=ttyPS0,115200 earlyprintk root=/dev/mmcblk0p2 ro rootwait
 
-=> setenv bootcmd "fatload mmc 0 ${netstart} zImage;fatload mmc 0 ${dtbnetstart} zImage-zynq-zc702.dtb; \
+=> setenv bootcmd "fatload mmc 0 ${netstart} zImage;fatload mmc 0 ${dtbnetstart} zynq-zc702.dtb; \
    bootz ${netstart} - ${dtbnetstart}"
 
 => saveenv; run bootcmd;
