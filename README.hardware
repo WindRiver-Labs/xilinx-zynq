@@ -52,7 +52,6 @@ the corresponding h/w features exist.
   o Network
 	+ GEM: On-Chip Gigabit Ethernet Controller
 	+ PHY: Marvell 88E1116R
-	+ IEEE 1588 PTP
 
   o Storage
 	+ NOR Flash:
@@ -84,6 +83,9 @@ The following features are not supported and validated:
   o Bus
 	x SFP (PL, zc706, needs specific TRD)
 	x FMC (Needs specific hardware to support special apps)
+
+  o Network
+	x IEEE 1588 PTP
 
 4. BSP Notes
 ============
